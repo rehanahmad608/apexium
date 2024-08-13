@@ -1,0 +1,105 @@
+---
+import { Icon } from 'astro-icon'
+import Footer from './Footer.astro'
+import Navbar from './Navbar.astro'
+
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang='en' class='dark'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/png' sizes='16x16' href='/Logoreduced.png' />
+    <meta name='generator' content={Astro.generator} />
+    <meta name='description' content='Apexium Technologies' />
+    <title>{title}</title>
+  </head>
+  <body class='text-body-light bg-white dark:text-body dark:bg-dark-1 min-h-screen'>
+    <div
+      class='fixed bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-[31.25rem] h-[31.25rem] rounded-full [background-image:linear-gradient(45deg,#059dff,#36c6f0)] opacity-25 -z-10 blur-[6.25rem]'
+    >
+    </div>
+    <div
+      class='fixed top-0 right-0 translate-x-1/2 -translate-y-1/2 w-[31.25rem] h-[31.25rem] rounded-full [background-image:linear-gradient(45deg,#fb5343,#6549d5)] opacity-25 -z-10 blur-[6.25rem]'
+    >
+    </div>
+    <header>
+      <Navbar />
+    </header>
+    <main class='px-4 xl:max-w-6xl 2xl:max-w-7xl lg:max-w-4xl md:max-w-2xl mx-auto pt-[68px]'>
+      <slot />
+    </main>
+    <button
+      class='bg-light-2 dark:bg-dark-3 rounded-full w-12 h-12 fixed z-10 right-8 bottom-8 opacity-0 grid place-content-center duration-300'
+      id='scrollTopBtn'
+      aria-label='scroll-to-top'
+    >
+      <Icon name='mdi:arrow-up' class='w-6 h-6' />
+    </button>
+    <Footer />
+  </body>
+</html>
+
+<script>
+  if (localStorage.theme === 'light') {
+    document.documentElement.className = 'light'
+  }
+  const scrollTopBtn = document.getElementById('scrollTopBtn')
+  window.onscroll = () => {
+    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+      scrollTopBtn.classList.add('opacity-100')
+      scrollTopBtn.classList.remove('invisible')
+    } else {
+      scrollTopBtn.classList.remove('opacity-100')
+      scrollTopBtn.classList.add('invisible')
+    }
+  }
+  scrollTopBtn.addEventListener('click', () => {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
+  })
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('reveal', entry.isIntersecting)
+    })
+  })
+  const elements = document.querySelectorAll('.hide')
+  elements.forEach(el => observer.observe(el))
+</script>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-thumb {
+    box-shadow: 0px 0px 0px 100000vh black;
+    background: linear-gradient(rgb(255, 255, 255), rgb(107, 107, 107), rgb(16, 16, 16));
+  }
+  .box-shadow-1:hover {
+    box-shadow: 0 0 20px 5px rgba(251, 83, 67, 0.2);
+  }
+  .hide {
+    opacity: 0;
+    transform: translateY(10%);
+    transition: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hide {
+      transition: all 1s;
+    }
+  }
+</style>

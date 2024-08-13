@@ -1,0 +1,94 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<footer class="bg-light-1 dark:bg-dark-1 border-t border-border">
+  <div
+    class="px-4 xl:max-w-6xl 2xl:max-w-7xl lg:max-w-4xl md:max-w-2xl mx-auto py-10 flex items-center justify-between flex-col md:flex-row space-y-4"
+  >
+    <!-- logo -->
+    <div class="w-full">
+      <div class="flex items-center space-x-0.5">
+        <img src="/Logoreduced.png" alt="logo" width="26" height="26" />
+        <div class="text-black dark:text-white text-xl font-bold">
+          Apexium<span class="text-black dark:text-white text-xl font-bold"
+            >Technologies</span
+          >
+        </div>
+      </div>
+      <div class="text-xl font-bold mb-2">
+        <!-- class='[-webkit-background-clip:text] bg-body-light text-transparent' -->
+        <span class="text-black dark:text-white text-xl font-bold">
+          Innovating Smart Industries
+        </span>
+      </div>
+    </div>
+    <!-- contact -->
+    <div class="w-full md:grid md:justify-center">
+      <h4 class="text-lg mb-4 font-semibold text-black dark:text-white">
+        Contact Us
+      </h4>
+      <div class="flex space-x-1 items-center mb-2">
+        <Icon name="mdi:email" class="h-5 w-5" />
+        <span
+          >Email: <a
+            href="mailto:Apexium Technologiesinfo@gmail.com"
+            class="hover:text-main-1 hover:underline"
+            >apexiumtechinfo@gmail.com</a
+          ></span
+        >
+      </div>
+      <!-- <div class='flex space-x-1 items-center mb-2'>
+        <Icon name='mdi:phone' class='h-5 w-5' />
+        <span>UK: <a href='tel:+447724510122' class='hover:text-main-1 hover:underline'>+44 772 4510122</a></span>
+      </div> -->
+      <!-- <div class='flex space-x-1 items-center mb-2'>
+        <Icon name='mdi:phone' class='h-5 w-5' />
+        <span>Pakistan: <a href='tel:+923125137702' class='hover:text-main-1 hover:underline'>+92 312 5137702</a></span>
+      </div> -->
+    </div>
+    <!-- follow -->
+    <div class="w-full md:grid md:justify-center">
+      <h4 class="text-lg mb-4 font-semibold text-black dark:text-white">
+        Follow Us
+      </h4>
+      <div class="flex space-x-1.5">
+        <a
+          href="/"
+          aria-label="facebook"
+          class="bg-light-2 dark:bg-dark-3 rounded-full w-12 h-12 grid place-content-center"
+        >
+          <Icon name="mdi:facebook" class="h-5 w-5" />
+        </a>
+        <a
+          href="/"
+          aria-label="twitter"
+          class="bg-light-2 dark:bg-dark-3 rounded-full w-12 h-12 grid place-content-center"
+        >
+          <Icon name="mdi:twitter" class="h-5 w-5" />
+        </a>
+        <a
+          href="/"
+          aria-label="linkedin"
+          class="bg-light-2 dark:bg-dark-3 rounded-full w-12 h-12 grid place-content-center"
+        >
+          <Icon name="mdi:linkedin" class="h-5 w-5" />
+        </a>
+        <a
+          href="/"
+          aria-label="instagram"
+          class="bg-light-2 dark:bg-dark-3 rounded-full w-12 h-12 grid place-content-center"
+        >
+          <Icon name="mdi:instagram" class="h-5 w-5" />
+        </a>
+        <a
+          href="/"
+          aria-label="youtube"
+          class="bg-light-2 dark:bg-dark-3 rounded-full w-12 h-12 grid place-content-center"
+        >
+          <Icon name="mdi:youtube" class="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

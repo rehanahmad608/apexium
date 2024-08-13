@@ -1,0 +1,80 @@
+---
+import { Icon } from 'astro-icon'
+import Layout from '../layouts/Layout.astro'
+import 'blaze-slider/dist/blaze.css'
+---
+
+<Layout title='Project 1 | Apexium Technologies'>
+  <section class='py-14'>
+    <div class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold w-max mx-auto mb-3'>
+      <span class='[-webkit-background-clip:text] bg-body-light text-transparent'>
+        Project Showcase
+      </span>
+    </div>
+    <h1 class='text-4xl font-bold mb-6 dark:text-white text-black text-center'>DeepAR PhotoEditing App</h1>
+    <p class='mb-10 text-center'>
+      DeepAR offers you fun AR filters and 3D masks that integrate seamlessly into your mobile application and allow
+      your users to add AR effects to their video calls, capture videos with flashy sunglasses, and much more.
+    </p>
+    <h2 class='text-2xl font-bold mb-3 dark:text-white text-black'>Features</h2>
+    <ul class='grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10'>
+      <li class="before:content-['✓'] before:mr-1.5 before:text-main-1">AR Experience</li>
+      <li class="before:content-['✓'] before:mr-1.5 before:text-main-1">3D Marks</li>
+      <li class="before:content-['✓'] before:mr-1.5 before:text-main-1">Add Effects to Images</li>
+      <li class="before:content-['✓'] before:mr-1.5 before:text-main-1">Add Effects to Videos</li>
+      <li class="before:content-['✓'] before:mr-1.5 before:text-main-1">User Authentication</li>
+      <li class="before:content-['✓'] before:mr-1.5 before:text-main-1">Capture Videos</li>
+    </ul>
+    <h2 class='text-2xl font-bold mb-3 dark:text-white text-black'>Technologies Used</h2>
+    <ul class='grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10'>
+      <li class='flex items-center space-x-2'><Icon name='flutter' class='w-10 h-10' /><span>Flutter</span></li>
+      <li class='flex items-center space-x-2'><Icon name='node' class='w-10 h-10' /><span>Node</span></li>
+      <li class='flex items-center space-x-2'><Icon name='firebase' class='w-10 h-10' /><span>Firebase</span></li>
+      <li class='flex items-center space-x-2'><Icon name='android' class='w-10 h-10' /><span>Android</span></li>
+      <li class='flex items-center space-x-2'><Icon name='apple' class='w-10 h-10' /><span>Apple</span></li>
+      <li class='flex items-center space-x-2'><Icon name='unity' class='w-10 h-10' /><span>Unity</span></li>
+    </ul>
+    <h2 class='text-2xl font-bold mb-3 dark:text-white text-black'>Showcase</h2>
+    <div class='blaze-slider mb-14'>
+      <div class='blaze-container'>
+        <div class='blaze-track-container'>
+          <div class='blaze-track'>
+            <div class='grid place-content-center bg-dark-4'>
+              <img src='project1.jpg' alt='project1' width='300' height='300' />
+            </div>
+            <div class='grid place-content-center bg-dark-4'>
+              <img src='project2.jpg' alt='project1' width='300' height='300' />
+            </div>
+            <div class='grid place-content-center bg-dark-4'>
+              <img src='project3.jpg' alt='project1' width='300' height='300' />
+            </div>
+            <div class='grid place-content-center bg-dark-4'>
+              <img src='project1.jpg' alt='project1' width='300' height='300' />
+            </div>
+            <div class='grid place-content-center bg-dark-4'>
+              <img src='project2.jpg' alt='project1' width='300' height='300' />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import BlazeSlider from 'blaze-slider'
+
+  const slider = document.querySelector('.blaze-slider') as HTMLElement
+  new BlazeSlider(slider, {
+    all: {
+      slidesToShow: 3,
+      enableAutoplay: true,
+    },
+    '(max-width: 768px)': {
+      slidesToShow: 2,
+    },
+    '(max-width: 640px)': {
+      slidesToShow: 1,
+    },
+  })
+</script>

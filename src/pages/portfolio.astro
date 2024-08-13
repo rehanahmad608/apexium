@@ -1,0 +1,130 @@
+---
+import RotatingCard from '../components/ui/RotatingCard.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title='Portfolio | Apexium Technologies'>
+  <section class='py-14'>
+    <div class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold w-max mx-auto mb-3'>
+      <span class='[-webkit-background-clip:text] bg-body-light text-transparent'>
+        Our Portfolio
+      </span>
+    </div>
+    <h1 class='text-4xl font-bold mb-6 dark:text-white text-black text-center'>
+      We're proud to have worked on a variety of exciting and impactful projects.
+    </h1>
+    <div class='flex justify-center space-x-1.5 sm:space-x-4 mb-10'>
+      <button
+        class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold duration-300 dark:bg-main-1 text-dark-1 filter-btn'
+        data-filter='all'>All</button
+      >
+      <button class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold duration-300 filter-btn' data-filter='web'
+        >Web</button
+      >
+      <button class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold duration-300 filter-btn' data-filter='mobile'
+        >Mobile</button
+      >
+      <button class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold duration-300 filter-btn' data-filter='ar'>AR</button>
+      <button class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold duration-300 filter-btn' data-filter='vr'>VR</button>
+    </div>
+
+    <div class='grid [grid-template-columns:repeat(auto-fit,minmax(18.75rem,1fr))] gap-6 mb-14'>
+      <RotatingCard
+        title='RD Fitness App'
+        description='A Fitness App UI which shows BMI, calories, activity tracking and Vital readings of the User.'
+        image='/RD_fitnessApp01.webp'
+        slug='project1'
+        dataFilter='mobile'
+      />
+      <RotatingCard
+        title='Photofy'
+        description='Photofy is AI based Photo Editor and Augmented Reality face filters App.'
+        image='/Discover.webp'
+        slug='project2'
+        dataFilter='mobile'
+      />
+      <RotatingCard
+        title='DeepAR PhotoEditing App'
+        description='DeepAR offers you fun AR filters and 3D masks that integrate seamlessly into your mobile application and allow your users to add AR effects to their video calls, capture videos with flashy sunglasses, and much more'
+        image='/DeepAR.webp'
+        slug='project3'
+        dataFilter='mobile'
+      />
+      <RotatingCard
+        title='Covid Tracker App'
+        description='A Covid Tracker app that tracks the symptoms of the user.'
+        image='/covidApp.webp'
+        slug='project3'
+        dataFilter='mobile'
+      />
+      <RotatingCard
+        title='ATC - Tees'
+        description='An e-commerce website with categories, sub-categories, products with filtering, sorting & pagination, multiple team stores, with card and paypal payment and a design lab to customize exiting project or design product from scratch.'
+        image='/atctees.webp'
+        slug='atctees'
+        dataFilter='web'
+      />
+      <RotatingCard
+        title='ChatGPT Clone'
+        description='Select any trained model from OpenAI and get the answer to any question, features OpenAI integration, react server components, google authentication, firebase to store conversations, optimitic updates, real time DB.'
+        image='/chatgpt.webp'
+        slug='chatgpt-clone'
+        dataFilter='web'
+      />
+      <RotatingCard
+        title='ImageHub'
+        description='Compress, Convert and Resize png, jpeg and webp images using high performance image processing'
+        image='/image-hub.webp'
+        slug='image-hub'
+        dataFilter='web'
+      />
+      <RotatingCard
+        title='The Blog'
+        description='Blog website developed using Next 13, React server components, Sanity CMS, GraphQL, incremental static site generation, tailwindCSS'
+        image='/nextblog.webp'
+        slug='the-blog'
+        dataFilter='web'
+      />
+      <RotatingCard
+        title='Instagram Clone'
+        description='Instagram clone features ability to upload posts, comment on posts, like/unlike posts, follow account, real-time chat, search profiles, update profile and much more...'
+        image='/insta-clone.webp'
+        slug='instagram-clone'
+        dataFilter='web'
+      />
+      <RotatingCard
+        title='DaChat'
+        description='Real time chat application. Join and leave chat rooms, see room participants, read/unread messages, insert emojis, see who is typing and much more...'
+        image='/dachat.webp'
+        slug='dachat'
+        dataFilter='web'
+      />
+      <RotatingCard
+        title='Twitter Clone'
+        description='Small scale twitter clone with user authentication, post, like and unlike tweet, cursor page pagination, relative time with local updates, seeding data using faker.js'
+        image='/twitter.webp'
+        slug='twitter-clone'
+        dataFilter='web'
+      />
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn')
+  const images = document.querySelectorAll('.relative')
+  filterBtns.forEach(filterBtn =>
+    filterBtn.addEventListener('click', () => {
+      filterBtns.forEach(el => el.classList.remove('text-dark-1', 'dark:bg-main-1'))
+      filterBtn.classList.add('text-dark-1', 'dark:bg-main-1')
+      images.forEach(image => {
+        // @ts-ignore
+        if (filterBtn.dataset.filter !== 'all' && image.dataset.filter !== filterBtn.dataset.filter) {
+          image.classList.add('hidden')
+        } else {
+          image.classList.remove('hidden')
+        }
+      })
+    })
+  )
+</script>

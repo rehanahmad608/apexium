@@ -1,0 +1,121 @@
+---
+import { Icon } from 'astro-icon'
+import Layout from '../../layouts/Layout.astro'
+import 'blaze-slider/dist/blaze.css'
+
+export interface Props {
+  title: string
+  description: string
+  siteLink?: string
+  codeLink?: string
+  features: string[]
+  technologies: {
+    title: string
+    icon: string
+  }[]
+  images?: string[]
+}
+
+const { title, description, siteLink, codeLink, features, technologies, images } = Astro.props
+---
+
+<Layout title={`${title} | Apexium Technologies`}>
+  <section class='py-14'>
+    <div class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold w-max mx-auto mb-3'>
+      <span class='[-webkit-background-clip:text] bg-body-light text-transparent'>
+        Project Showcase
+      </span>
+    </div>
+    <h1 class='text-4xl font-bold mb-6 dark:text-white text-black text-center'>{title}</h1>
+    <p class='text-center'>
+      {description}
+    </p>
+    <div class='text-center mb-4 mt-4 space-x-4 flex items-center justify-center'>
+      {
+        siteLink && (
+          <a
+            href={siteLink}
+            class='hover:text-main-1 flex space-x-1.5 items-center border rounded-lg px-4 py-1'
+            target='_blank'
+          >
+            <Icon name='mdi:link-variant' class='w-4 h-4' />
+            <span>Visit Site</span>
+          </a>
+        )
+      }
+      {
+        codeLink && (
+          <a
+            href={codeLink}
+            class='hover:text-main-1 flex space-x-1.5 items-center border rounded-lg px-4 py-1'
+            target='_blank'
+          >
+            <Icon name='mdi:code-tags' class='w-4 h-4' />
+            <span>View Code</span>
+          </a>
+        )
+      }
+    </div>
+    <h2 class='text-2xl font-bold mb-3 dark:text-white text-black'>Features</h2>
+    <ul class='grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10'>
+      {features?.map(feature => <li class="before:content-['✓'] before:mr-1.5 before:text-main-1">{feature}</li>)}
+    </ul>
+    <h2 class='text-2xl font-bold mb-3 dark:text-white text-black'>Technologies Used</h2>
+    <ul class='grid grid-cols-2 sm:grid-cols-3 gap-4 mb-10'>
+      {
+        technologies.map(technology => (
+          <li class='flex items-center space-x-2'>
+            <>
+              <Icon name={technology.icon} class='w-10 h-10' />
+              <span>{technology.title}</span>
+            </>
+          </li>
+        ))
+      }
+    </ul>
+    <h2 class='text-2xl font-bold mb-3 dark:text-white text-black'>Showcase</h2>
+    <div class='blaze-slider mb-14'>
+      <div class='blaze-container'>
+        <div class='blaze-track-container'>
+          <div class='blaze-track'>
+            {
+              images.map(image => (
+                <div class='grid place-content-center bg-dark-4'>
+                  <img src={image} alt={title} />
+                </div>
+              ))
+            }
+          </div>
+          <div class='flex justify-between mt-1'>
+            <button class='blaze-prev flex items-center hover:text-main-1 duration-150'>
+              <Icon name='mdi:chevron-left' class='h-8 w-8' />
+              <span>Previous</span>
+            </button>
+            <button class='blaze-next flex items-center hover:text-main-1 duration-150'>
+              <span>Next</span>
+              <Icon name='mdi:chevron-right' class='h-8 w-8' />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import BlazeSlider from 'blaze-slider'
+
+  const slider = document.querySelector('.blaze-slider') as HTMLElement
+  new BlazeSlider(slider, {
+    all: {
+      slidesToShow: 3,
+      enableAutoplay: true,
+    },
+    '(max-width: 768px)': {
+      slidesToShow: 2,
+    },
+    '(max-width: 640px)': {
+      slidesToShow: 1,
+    },
+  })
+</script>

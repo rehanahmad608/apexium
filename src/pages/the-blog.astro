@@ -1,0 +1,28 @@
+---
+import ProjectShowcase from '../components/project/ProjectShowcase.astro'
+---
+
+<ProjectShowcase
+  title='The Blog'
+  description='Blog website developed using Next 13, React server components, Sanity CMS, GraphQL, incremental static site generation, tailwindCSS'
+  siteLink='https://next-sanity-blog-wheat.vercel.app/'
+  codeLink='https://github.com/MuhammadUsamaAwan/next-sanity-blog'
+  features={[
+    'Next 13 App Directory',
+    'React Server Component',
+    'Sanity CMS',
+    'Incremental Static Site Generation',
+    'Preview Mode',
+    'Portable Rich Text',
+    'Responsive Design',
+    'And Much More...',
+  ]}
+  technologies={[
+    { icon: 'next', title: 'Next.js' },
+    { icon: 'typescript', title: 'TypeScript' },
+    { icon: 'sanity', title: 'Sanity' },
+    { icon: 'tailwind', title: 'TailwindCSS' },
+    { icon: 'vercel', title: 'Vercel' },
+  ]}
+  images={['blog (1).webp', 'blog (2).webp', 'blog (3).webp', 'blog (4).webp']}
+/>

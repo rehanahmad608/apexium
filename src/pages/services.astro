@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon';
+---
+
+<Layout title='Services | Apexium Technologies'>
+  <section class='py-14'>
+    <div class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold w-max mx-auto mb-3'>
+      <span class='[-webkit-background-clip:text] bg-body-light text-transparent'>
+        Services
+      </span>
+    </div>
+    <h1 class='text-4xl font-bold mb-3 dark:text-white text-black text-center'>Services That We Offer</h1>
+    <p class='text-center mb-6'>
+      At Apexium Technologies, our strategies are designed to maximize the engaging experiences of your customers and to improve
+      customer retention through brand loyalty for your business.
+    </p>
+    <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center'>
+      <div>
+        <div class='flex justify-center'>
+          <Icon name='service1' class='h-48 sm:h-56' />
+        </div>
+        <h3 class='text-2xl font-bold'>
+          <span
+            class='[-webkit-background-clip:text] bg-body-light text-transparent'
+            >Web Services & Web-XR Experiences</span
+          >
+        </h3>
+      </div>
+      <div>
+        <div class='flex justify-center'>
+          <Icon name='service2' class='h-48 sm:h-56' />
+        </div>
+        <h3 class='text-2xl font-bold'>
+          <span
+            class='[-webkit-background-clip:text] bg-body-light text-transparent'
+            >Mobile App Development</span
+          >
+        </h3>
+      </div>
+      <div>
+        <div class='flex justify-center'>
+          <Icon name='hero' class='h-48 sm:h-56' />
+        </div>
+        <h3 class='text-2xl font-bold'>
+          <span
+            class='[-webkit-background-clip:text] bg-body-light text-transparent'
+            >AR / VR Interactive Solutions</span
+          >
+        </h3>
+      </div>
+    </div>
+  </section>
+</Layout>

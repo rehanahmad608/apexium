@@ -1,0 +1,29 @@
+---
+import ProjectShowcase from '../components/project/ProjectShowcase.astro'
+---
+
+<ProjectShowcase
+  title='Twitter Clone'
+  description='Small scale twitter clone with user authentication, post, like and unlike tweet, cursor page pagination, relative time with local updates, seeding data using fakerJS.'
+  codeLink='https://github.com/MuhammadUsamaAwan/twitter-t3'
+  features={[
+    'Post Tweets',
+    'Like/Unlike Tweet',
+    'Cursor Page Pagination',
+    'Relative Time With Local Updates',
+    'Seeding Using Faker JS',
+    'Optimistic Updates',
+    'User Authentication',
+    'Responsive Design',
+  ]}
+  technologies={[
+    { icon: 'next', title: 'Next.js' },
+    { icon: 'prisma', title: 'Prisma' },
+    { icon: 'sqlite-icon', title: 'SQLite' },
+    { icon: 'trpc', title: 'tRPC' },
+    { icon: 'typescript', title: 'TypeScript' },
+    { icon: 'tailwind', title: 'TailwindCSS' },
+    { icon: 'vercel', title: 'Vercel' },
+  ]}
+  images={['twitter (1).webp', 'twitter (2).webp', 'twitter (3).webp']}
+/>

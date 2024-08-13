@@ -1,0 +1,94 @@
+---
+import { Icon } from 'astro-icon'
+---
+
+<nav class='fixed w-full top-0 z-10 bg-light-1 dark:bg-dark-1 border-b border-border'>
+  <div class='flex items-center justify-between px-4 xl:max-w-6xl 2xl:max-w-7xl lg:max-w-4xl md:max-w-2xl mx-auto'>
+    <a href='/' class='py-4 flex items-center space-x-0.5'>
+      <img src='/Logoreduced.png' alt='logo' width='36' height='36' />
+      <div class='text-black dark:text-white text-xl font-bold'>
+        Apexium <span class='text-black dark:text-white text-xl font-bold'>Technologies</span
+          >
+          <!-- abc -->
+          <!-- class='[-webkit-background-clip:text] bg-body-light text-transparent' -->
+          
+      </div>
+    </a>
+    <ul class='flex space-x-6 items-center'>
+      <li class='hidden lg:block'><a href='/' class='py-4 px-2 font-semibold hover:text-main-1'>Home</a></li>
+      <li class='hidden lg:block'><a href='/about' class='py-4 px-2 font-semibold hover:text-main-1'>About</a></li>
+      <li class='hidden lg:block'>
+        <a href='/services' class='py-4 px-2 font-semibold hover:text-main-1'>Services</a>
+      </li>
+      <li class='hidden lg:block'>
+        <a href='/portfolio' class='py-4 px-2 font-semibold hover:text-main-1'>Portfolio</a>
+      </li>
+      <li class='hidden lg:block'><a href='/contact' class='py-4 px-2 font-semibold hover:text-main-1'>Contact</a></li>
+      <li class='lg:hidden h-6 w-6'>
+        <button class='h-full w-full' id='menuBtn' aria-label='toggle-menu'>
+          <Icon name='mdi:menu' />
+        </button>
+      </li>
+      <li class='h-6 w-6'>
+        <button id='themeBtn' class='h-full w-full' aria-label='toggle-theme'>
+          <Icon name='mdi:white-balance-sunny' class='hover:text-main-1 dark:hidden' />
+          <Icon name='bi:moon-fill' class='hover:text-main-1 hidden dark:block' />
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+<aside
+  class='bg-light-1 dark:bg-dark-1 fixed inset-0 w-80 h-full z-20 -translate-x-80 duration-500 opacity-0'
+  id='mobileMenu'
+>
+  <div class='border-b border-border py-4 flex justify-between items-center px-4'>
+    <a href='/' class='flex items-center space-x-0.5'>
+      <img src='/logo.png' alt='logo' width='26' height='26' />
+      <div class='text-black dark:text-white text-3xl font-bold'>
+        Devs<span
+          class='[-webkit-background-clip:text] bg-body-light text-transparent'
+          >Clan</span
+        >
+      </div>
+    </a>
+    <button id='closeBtn' aria-label='close-menu' class='w-6 h-6'>
+      <Icon name='mdi:close' />
+    </button>
+  </div>
+  <ul class='p-4'>
+    <li><a href='/' class='py-2 font-semibold border-b border-border block'>Home</a></li>
+    <li><a href='/about' class='py-2 font-semibold border-b border-border block'>About</a></li>
+    <li><a href='/services' class='py-2 font-semibold border-b border-border block'>Services</a></li>
+    <li><a href='/portfolio' class='py-2 font-semibold border-b border-border block'>Portfolio</a></li>
+    <li><a href='/contact' class='py-2 font-semibold border-b border-border block'>Contact</a></li>
+  </ul>
+</aside>
+
+<script>
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    if (localStorage.theme === 'light') {
+      localStorage.theme = 'dark'
+      document.documentElement.className = 'dark'
+    } else {
+      localStorage.theme = 'light'
+      document.documentElement.className = 'light'
+    }
+  })
+  const mobileMenu = document.getElementById('mobileMenu')
+  document.getElementById('menuBtn')?.addEventListener('click', () => {
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('-translate-x-0')
+      mobileMenu.classList.toggle('opacity-100')
+    }
+  })
+  document.getElementById('closeBtn')?.addEventListener('click', () => {
+    if (mobileMenu) {
+      mobileMenu.classList.remove('-translate-x-0', 'opacity-100')
+    }
+  })
+  const links = document.querySelectorAll('li a')
+  links.forEach((link: HTMLAnchorElement) => {
+    if (link.pathname === window.location.pathname) link.classList.add('text-main-1')
+  })
+</script>

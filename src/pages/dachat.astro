@@ -1,0 +1,27 @@
+---
+import ProjectShowcase from '../components/project/ProjectShowcase.astro'
+---
+
+<ProjectShowcase
+  title='Image Hub'
+  description='Real time chat application. Join and leave chat rooms, see room participants, read/unread messages, insert emojis, see who is typing and much more...'
+  codeLink='https://github.com/MuhammadUsamaAwan/dachat'
+  features={[
+    'Join/Leave Rooms',
+    'See Participants',
+    'Get notified about who left & joined room',
+    'Send Emojis',
+    'Get notified when someone is typing',
+    'Read Unread Messages',
+    'Notifcation Sounds',
+    'Responsive Design',
+    'And Much More...',
+  ]}
+  technologies={[
+    { icon: 'node', title: 'Node.js' },
+    { icon: 'expressjs', title: 'Express.js' },
+    { icon: 'socket', title: 'Socket.io' },
+    { icon: 'tailwind', title: 'TailwindCSS' },
+  ]}
+  images={['dachat (1).webp', 'dachat (2).webp', 'dachat (3).webp']}
+/>

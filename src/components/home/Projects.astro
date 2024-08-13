@@ -1,0 +1,48 @@
+---
+import RotatingCard from '../ui/RotatingCard.astro';
+---
+
+<section class='min-h-[calc(100vh-68px)] flex items-center border-b border-border py-14'>
+  <div class='text-center hide'>
+    <div class='dark:bg-dark-3 px-4 py-1 rounded-lg font-bold w-max mx-auto mb-3'>
+      <span class='[-webkit-background-clip:text] bg-body-light text-transparent'>
+        Projects
+      </span>
+    </div>
+    <h2 class='text-4xl font-bold mb-6 dark:text-white text-black'>
+      We're proud to have worked on a variety of exciting and impactful projects.
+    </h2>
+    <p class='text-lg mb-8'>
+      Our portfolio showcases our expertise in user-friendly experiences and our commitment to delivering innovative
+      solutions. Some of our notable projects include our following work. Whether working with large corporations or
+      small startups, we bring the same level of passion and professionalism to every project, ensuring the best
+      possible outcome for our clients. Let us bring our expertise and experience to your next project and see what we
+      can achieve together.
+    </p>
+    <div class='grid [grid-template-columns:repeat(auto-fit,minmax(18.75rem,1fr))] gap-6 mb-14'>
+      <RotatingCard
+        title='Project 1'
+        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi necessitatibus blanditiis hic tenetur saepe'
+        image='/project1.jpg'
+        slug='project1'
+      />
+      <RotatingCard
+        title='Project 2'
+        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi necessitatibus blanditiis hic tenetur saepe! Pariatur molestiae nihil officiis aperiam ducimus temporibus, cumque totam odit voluptatibus!'
+        image='/project2.jpg'
+        slug='project2'
+      />
+      <RotatingCard
+        title='Project 3'
+        description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi necessitatibus blanditiis hic tenetur saepe! Pariatur molestiae nihil officiis aperiam ducimus temporibus, cumque totam odit voluptatibus!'
+        image='/project3.jpg'
+        slug='project3'
+      />
+    </div>
+    <a
+      href='/portfolio'
+      class='text-white rounded-lg text-lg font-semibold px-6 py-3 bg-body-light box-shadow-1 duration-300'>
+      Our Portfolio</a
+    >
+  </div>
+</section>

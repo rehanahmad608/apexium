@@ -1,0 +1,38 @@
+---
+import 'blaze-slider/dist/blaze.css';
+
+export interface Props {
+  images: HTMLImageElement[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class='blaze-slider'>
+  <div class='blaze-container'>
+    <div class='blaze-track-container'>
+      <div class='blaze-track'>
+        {images.map(image => <div class='grid place-content-center bg-dark-3'>{image}</div>)}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import BlazeSlider from 'blaze-slider';
+
+  const slider = document.querySelector('.blaze-slider') as HTMLElement;
+  new BlazeSlider(slider, {
+    all: {
+      slidesToScroll: 1,
+      slidesToShow: 3,
+      enableAutoplay: true,
+    },
+    '(max-width: 768px)': {
+      slidesToShow: 2,
+    },
+    '(max-width: 640px)': {
+      slidesToShow: 1,
+    },
+  });
+</script>

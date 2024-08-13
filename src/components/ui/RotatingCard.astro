@@ -1,0 +1,32 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image: string;
+  slug: string;
+  dataFilter?: string;
+}
+
+const { title, description, image, slug, dataFilter } = Astro.props;
+---
+
+<div
+  class='relative w-[18.75rem] h-[18.75rem] [prespective-62.5rem] group text-white mx-auto duration-1000'
+  data-filter={dataFilter}>
+  <div
+    class='absolute w-full h-full [transform-style:preserve-3d] duration-700 group-hover:[transform:rotateY(190deg)]'>
+    <div>
+      <img height={300} width={300} src={image} alt={title} class='absolute inset-0 brightness-50' />
+      <h3 class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-3xl'>{title}</h3>
+    </div>
+    <div class='w-full h-full py-[1.25rem] [transform-style:preserve-3d] [transform:rotateY(180deg)] flex items-center'>
+      <div class='w-full h-full p-[1.25rem] bg-[linear-gradient(45deg,#0a1e27,#1f0f13)] [transform:translateZ(100px)]'>
+        <h3 class='font-semibold mb-4'>{title}</h3>
+        <p class='text-sm mb-4'>
+          {description}
+        </p>
+        <a href={`/${slug}`} class='rounded-lg text-sm px-3 py-1 border border-body'> Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
